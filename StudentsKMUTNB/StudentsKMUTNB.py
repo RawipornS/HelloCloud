@@ -135,3 +135,4 @@ Tea2 = Teacher(teacher_id='WKN',f_name='Watcharachai',l_name='Kongsiriwattana',e
 
 session.add_all([user1,user2,user3,regis1, regis11, regis2, regis22, regis3, regis33,sub1 ,sub2,Tea1,Tea2])
 session.commit()
+print(user1,user2,user3,regis1, regis11, regis2, regis22, regis3, regis33,sub1 ,sub2,Tea1,Tea2)
