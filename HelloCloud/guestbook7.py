@@ -2,8 +2,9 @@ from flask import Flask, render_template, request,redirect,url_for
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Column, Integer, String, Date
 
+
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI']='postgresql://webadmin:DRRoas64212@10.104.9.239:5432/testdb'
+app.config['SQLALCHEMY_DATABASE_URI']='postgresql://webadmin:DRRoas64212@10.104.9.239:11250/testdb'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
