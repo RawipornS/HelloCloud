@@ -3,6 +3,8 @@ from flask import Flask,render_template,request
 from flask_sqlalchemy import SQLAlchemy 
 from students import Students ,Registration,Subjects,Teacher, session
 app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI']='postgresql://webadmin:DRRoas64212@10.104.9.239:5432/myhw'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 @app.route("/")
 def index():
