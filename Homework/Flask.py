@@ -1,4 +1,3 @@
-
 from flask import Flask,render_template,request  
 from flask_sqlalchemy import SQLAlchemy 
 from StudentKMUTNB import Students ,Registration,Subjects,Teacher, session
