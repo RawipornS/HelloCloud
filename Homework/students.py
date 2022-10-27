@@ -57,14 +57,14 @@ Base.metadata.create_all(engine)
 Session = sessionmaker(bind=engine)
 session = Session()
 
-user2 = Students(
+user1 = Students(
     student_id ='6406022620070',
     S_f_name='Rawiporn',
     S_l_name='Suamsiri',
     S_e_mail ='6406022620070@kmutnb.ac.th'
 )
 
-user1 = Students(
+user2 = Students(
     student_id ='6406022620088',
     S_f_name='Puntita',
     S_l_name='Chaungchawna',
