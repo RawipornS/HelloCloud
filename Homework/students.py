@@ -133,7 +133,6 @@ Subjects1 = Subjects(
     teacher_id ='AMK'
 )
 
-
 Subjects2 = Subjects(
     sub_id ='060233201',
     subject_name='NETWORK ENGINEERING LABORATO',
