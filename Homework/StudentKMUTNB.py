@@ -1,21 +1,19 @@
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+import sqlalchemy
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, CHAR, VARCHAR, Integer, String, Text, DateTime, Float, Boolean, PickleType
-
+from sqlalchemy import Column , Integer , String , ForeignKey
+from sqlalchemy.orm import sessionmaker , relationship , backref
 Base = declarative_base()
-db_uri = 'sqlite:///HW1.sqlite3'
-engine = create_engine(db_uri, echo=False)
+engine = sqlalchemy.create_engine('postgresql://webadmin:DRRoas64212@node37021-rawiporn.proen.app.ruk-com.cloud:11250/myhw')
 
 class Students(Base):
     __tablename__ = 'Students' 
     student_id = Column(String(13),primary_key = True,nullable = True) 
-    f_name = Column(String(30),nullable = False) 
-    l_name = Column(String(30),nullable=False) 
-    e_mail = Column(String(50), nullable=False) 
+    S_f_name = Column(String(30),nullable = False) 
+    S_l_name = Column(String(30),nullable=False) 
+    S_e_mail = Column(String(50), nullable=False) 
 
     def __repr__(self):
-        return '<User(student_id = {}, f_name = {}, l_name = {}, e_mail ={})>'.format(self.student_id, self.f_name, self.l_name, self.e_mail)
+        return '<User(student_id = {}, S_f_name = {}, S_l_name = {}, S_e_mail ={})>'.format(self.student_id, self.S_f_name, self.S_l_name, self.S_e_mail)
         
 
 class Registration(Base):
@@ -44,13 +42,13 @@ class Subjects(Base):
 class Teacher(Base):
     __tablename__ = 'Teachers' 
     teacher_id = Column(String(3),primary_key=True, nullable=True)
-    f_name = Column(String(50), nullable=True)
-    l_name = Column(String(30), nullable=True)
-    e_mail = Column(String(50), nullable=True)
+    T_f_name = Column(String(50), nullable=True)
+    T_l_name = Column(String(30), nullable=True)
+    T_e_mail = Column(String(50), nullable=True)
 
     def __repr__(self):
-            return '<User(teacher_id = {} , f_name= {} , l_name = {} , e_mail = {})>'.format(self.teacher_id,\
-                    self.f_name, self.l_name , self.e_mail)
+            return '<User(teacher_id = {} , T_f_name= {} , T_l_name = {} , T_e_mail = {})>'.format(self.teacher_id,\
+                    self.T_f_name, self.T_l_name , self.T_e_mail)
 
 Base.metadata.drop_all(engine)
 Base.metadata.create_all(engine)
@@ -60,28 +58,28 @@ Session = sessionmaker(bind=engine)
 session = Session()
 
 user2 = Students(
-    student_id ='6406022610015',
-    f_name='Kongphop',
-    l_name='Sri-on',
-    e_mail ='6406022610015@kmutnb.ac.th'
+    student_id ='6406022620070',
+    S_f_name='Rawiporn',
+    S_l_name='Suamsiri',
+    S_e_mail ='6406022620070@kmutnb.ac.th'
 )
 
 user1 = Students(
     student_id ='6406022610023',
-    f_name='Nititat',
-    l_name='Bangpra',
-    e_mail ='6406022610023@kmutnb.ac.th'
+    S_f_name='Nititat',
+    S_l_name='Bangpra',
+    S_e_mail ='6406022610023@kmutnb.ac.th'
 )
 
 user3 = Students(
-    student_id ='6406022620053',
-    f_name='Watcharakorn',
-    l_name='Yentaweesuv',
-    e_mail ='6406022620053@kmutnb.ac.th'
+    student_id ='6406022620061',
+    S_f_name='Mathawee',
+    S_l_name='Robkhob',
+    S_e_mail ='6406022620061@kmutnb.ac.th'
 )
 
 regis1 = Registration(
-    student_id ='6406022610023',
+    student_id ='6406022620070',
     sub_id='060233113',
     year='2565',
     semester ='1',
@@ -89,15 +87,15 @@ regis1 = Registration(
 )
 
 regis11 = Registration(
-    student_id ='6406022610023',
+    student_id ='6406022620070',
     sub_id='060233201',
     year='2565',
     semester ='1',
-    grade = 'C+'
+    grade = 'A'
 )
 
 regis2 = Registration(
-    student_id ='6406022610015',
+    student_id ='6406022610023',
     sub_id='060233113',
     year='2565',
     semester ='1',
@@ -105,7 +103,7 @@ regis2 = Registration(
 )
 
 regis22 = Registration(
-    student_id ='6406022610015',
+    student_id ='6406022610023',
     sub_id='060233201',
     year='2565',
     semester ='1',
@@ -113,7 +111,7 @@ regis22 = Registration(
 )
 
 regis3 = Registration(
-    student_id ='6406022620053',
+    student_id ='6406022620061',
     sub_id='060233113',
     year='2565',
     semester ='1',
@@ -121,7 +119,7 @@ regis3 = Registration(
 )
 
 regis33 = Registration(
-    student_id ='6406022620053',
+    student_id ='6406022620061',
     sub_id='060233201',
     year='2565',
     semester ='1',
@@ -145,17 +143,17 @@ Subjects2 = Subjects(
 
 teacher1 = Teacher(
     teacher_id='AMK',
-    f_name='Anirach',
-    l_name='Mingkhwan',
-    e_mail='Anirach@gmail.com'
+    T_f_name='Anirach',
+    T_l_name='Mingkhwan',
+    T_e_mail='Anirach@gmail.com'
 )
 teacher2 = Teacher(
     teacher_id='WKN',
-    f_name='Watcharachai',
-    l_name='Kongsiriwattana',
-    e_mail='Watcharachai@gmail.com'
+    T_f_name='Watcharachai',
+    T_l_name='Kongsiriwattana',
+    T_e_mail='Watcharachai@gmail.com'
 )
 
 session.add_all([user1,user2,user3,regis1, regis11, regis2, regis22, regis3, regis33,Subjects1 ,Subjects2,teacher1,teacher2])
+print(session.query(Students).all())
 session.commit()
-print([user1,user2,user3,regis1, regis11, regis2, regis22, regis3, regis33,Subjects1 ,Subjects2,teacher1,teacher2])
