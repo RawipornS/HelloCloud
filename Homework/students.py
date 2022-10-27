@@ -65,10 +65,10 @@ user2 = Students(
 )
 
 user1 = Students(
-    student_id ='6406022610023',
-    S_f_name='Nititat',
-    S_l_name='Bangpra',
-    S_e_mail ='6406022610023@kmutnb.ac.th'
+    student_id ='6406022620088',
+    S_f_name='Puntita',
+    S_l_name='Chaungchawna',
+    S_e_mail ='6406022620088@kmutnb.ac.th'
 )
 
 user3 = Students(
@@ -95,15 +95,15 @@ regis11 = Registration(
 )
 
 regis2 = Registration(
-    student_id ='6406022610023',
+    student_id ='6406022620088',
     sub_id='060233113',
     year='2565',
     semester ='1',
-    grade = 'A'
+    grade = 'C+'
 )
 
 regis22 = Registration(
-    student_id ='6406022610023',
+    student_id ='6406022610088',
     sub_id='060233201',
     year='2565',
     semester ='1',
@@ -115,7 +115,7 @@ regis3 = Registration(
     sub_id='060233113',
     year='2565',
     semester ='1',
-    grade = 'B'
+    grade = 'B+'
 )
 
 regis33 = Registration(
