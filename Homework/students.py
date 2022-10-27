@@ -103,7 +103,7 @@ regis2 = Registration(
 )
 
 regis22 = Registration(
-    student_id ='6406022610088',
+    student_id ='6406022620088',
     sub_id='060233201',
     year='2565',
     semester ='1',
